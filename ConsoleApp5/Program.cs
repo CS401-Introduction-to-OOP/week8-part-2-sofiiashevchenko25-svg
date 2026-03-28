@@ -1,15 +1,13 @@
-﻿namespace Variant1;
-public abstract class Resource
-{
-    public string Name { get; }
-    public bool IsOpen { get; protected set; }
-    public abstract void Open();
-    public abstract void Close();
-    
-    protected Resource(string name)
-    {
-        Name = name;
-        IsOpen = false;
-    }
-    
-}
+﻿using Variant1;
+
+var file = new FileResource("report.txt");
+var network = new NetworkResource("api.company.local");
+var manager = new ResourceManager<Resource>();
+
+
+manager.Add(file);
+manager.Add(network);
+manager.OpenAll();
+Console.Write(file.Name);
+manager.CloseAll();
+Console.WriteLine("Done.");
