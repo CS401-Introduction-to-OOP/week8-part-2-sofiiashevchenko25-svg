@@ -1,4 +1,4 @@
-﻿namespace Variant2;
+﻿namespace ConcoleApp5;
 
 public class PointRef
 {
